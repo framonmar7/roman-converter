@@ -1,6 +1,5 @@
 import argparse
 
-
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Roman number converter CLI")
 
