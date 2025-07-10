@@ -3,12 +3,13 @@ from errors.exceptions import (
     RomanConverterError,
     InvalidRangeError,
     InvalidRomanSyntaxError,
+    ArgumentParsingError,
 )
 
 def main() -> None:
     try:
         run_cli()
-    except (InvalidRangeError, InvalidRomanSyntaxError) as e:
+    except (InvalidRangeError, InvalidRomanSyntaxError, ArgumentParsingError) as e:
         print(f"🚨 {type(e).__name__}: {e}")
     except RomanConverterError as e:
         print(f"⚠️ RomanConverterError: {e}")

@@ -6,3 +6,6 @@ class InvalidRangeError(RomanConverterError):
 
 class InvalidRomanSyntaxError(RomanConverterError):
     """Raised when a Roman numeral has incorrect syntax."""
+
+class ArgumentParsingError(RomanConverterError):
+    """Raised when CLI argument parsing fails."""
