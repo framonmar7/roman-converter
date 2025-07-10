@@ -5,15 +5,15 @@ def decimal_to_roman(decimal_number: int) -> str:
     if not (1 <= decimal_number <= 3999):
         raise InvalidRangeError(f"{decimal_number} is outside the range 1–3999.")
 
-    roman_numeral = ""
+    roman_number = ""
     remaining = decimal_number
 
-    for value, numeral in DECIMAL_TO_ROMAN .items():
-        while remaining >= value:
-            roman_numeral += numeral
-            remaining -= value
+    for decimal_unit, roman_symbol in DECIMAL_TO_ROMAN.items():
+        while remaining >= decimal_unit:
+            roman_number += roman_symbol
+            remaining -= decimal_unit
 
-    return roman_numeral
+    return roman_number
 
 def roman_to_decimal(roman_number: str) -> int:
     roman_number = roman_number.upper()
@@ -38,6 +38,6 @@ def roman_to_decimal(roman_number: str) -> int:
             index += 1
 
     if decimal_to_roman(total) != roman_number:
-        raise InvalidRomanSyntaxError(f"Malformed Roman numeral: '{roman_number}'")
+        raise InvalidRomanSyntaxError(f"Malformed Roman number: '{roman_number}'")
 
     return total
