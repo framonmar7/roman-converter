@@ -1,0 +1,17 @@
+# ───────────────────────────────
+# 🐍 Python cache and bytecode
+# ───────────────────────────────
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+
+# ───────────────────────────────
+# 💻 IDE/editor configuration
+# ───────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
