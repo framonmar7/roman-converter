@@ -37,7 +37,14 @@ def roman_to_decimal(roman_number: str) -> int:
             total += current_value
             index += 1
 
-    if decimal_to_roman(total) != roman_number:
+    try:
+        canonical = decimal_to_roman(total)
+    except InvalidRangeError:
+        raise InvalidRomanSyntaxError(
+            f"'{roman_number}' represents a value outside the supported range."
+        )
+
+    if canonical != roman_number:
         raise InvalidRomanSyntaxError(f"Malformed Roman number: '{roman_number}'")
 
     return total
