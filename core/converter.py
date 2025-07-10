@@ -1,4 +1,4 @@
-from core.constants import ROMAN_NUMERALS, ROMAN_VALUES
+from core.constants import DECIMAL_TO_ROMAN , ROMAN_TO_DECIMAL
 from errors.exceptions import InvalidRangeError, InvalidRomanSyntaxError
 
 def decimal_to_roman(decimal_number: int) -> str:
@@ -8,7 +8,7 @@ def decimal_to_roman(decimal_number: int) -> str:
     roman_numeral = ""
     remaining = decimal_number
 
-    for value, numeral in ROMAN_NUMERALS.items():
+    for value, numeral in DECIMAL_TO_ROMAN .items():
         while remaining >= value:
             roman_numeral += numeral
             remaining -= value
@@ -24,11 +24,11 @@ def roman_to_decimal(roman_number: str) -> int:
         current = roman_number[index]
         next_char = roman_number[index + 1] if index + 1 < len(roman_number) else ""
 
-        if current not in ROMAN_VALUES:
+        if current not in ROMAN_TO_DECIMAL:
             raise InvalidRomanSyntaxError(f"Invalid character: '{current}'")
 
-        current_value = ROMAN_VALUES[current]
-        next_value = ROMAN_VALUES.get(next_char, 0)
+        current_value = ROMAN_TO_DECIMAL[current]
+        next_value = ROMAN_TO_DECIMAL.get(next_char, 0)
 
         if next_value > current_value:
             total += next_value - current_value
